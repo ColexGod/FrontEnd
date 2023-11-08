@@ -17,13 +17,9 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 header{
   background-color: #333;
@@ -80,3 +76,16 @@ header{
   padding: 5px 10px;
   cursor: pointer;
 }
+
+footer{
+  background-color: #333;
+  padding: 10px 20px;
+  color: #fff;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+
