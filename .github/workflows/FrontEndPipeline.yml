@@ -1,0 +1,12 @@
+name: FrontendYML
+'on': 
+   pull_request:
+    branches: 
+      - master
+      
+jobs:
+  my-jobs:
+      runs-on: ubuntu-latest
+      steps:
+        - name: myTest
+          run : echo "Creation de pipeline , la suite s'en vient "
