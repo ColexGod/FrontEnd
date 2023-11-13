@@ -1,8 +1,10 @@
 import React from "react";
 import "../globals.css";
 import logo from "../../../public/LOGO-STREAM_HEAVEN.png";
+import img_online from "../../../public/img_online.png";
+import img_offline from "../../../public/img_offline.png";
 
-const Header = () => {
+const Header = ({ onLoginClick }) => {
   return (
     <header>
       <div class="logo-nav">
@@ -12,13 +14,16 @@ const Header = () => {
         <nav>
           <ul class="nav">
             <li>
-              <a href="">Accueil</a>
+              <a href="">HOME</a>
             </li>
             <li>
-              <a href="">Films</a>
+              <a href="">MOVIES</a>
             </li>
             <li>
-              <a href="">Login</a>
+              <a href="#" onClick={onLoginClick}>
+                ACCOUNT
+              </a>
+              <img src={img_offline.src} />
             </li>
           </ul>
         </nav>
