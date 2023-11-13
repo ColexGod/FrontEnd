@@ -21,6 +21,8 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/*  ----------------------- css header -----------------------  */
 header{
   background-color: #333;
   padding: 10px 20px;
@@ -34,7 +36,7 @@ header{
 }
 
 .logo img {
-  width: 200px;
+  width: 250px;
 }
 
 .nav {
@@ -45,6 +47,17 @@ header{
 
 .nav li {
   margin-right: 20px;
+}
+
+.nav li img{
+  width:30px;
+  margin-left: 5px;
+  position: relative;
+  bottom: 5px;
+}
+
+.nav li:last-child{
+  display: flex;
 }
 
 .nav a {
@@ -77,6 +90,7 @@ header{
   cursor: pointer;
 }
 
+/*  ----------------------- css footer -----------------------  */
 footer{
   background-color: #333;
   padding: 10px 20px;
@@ -88,4 +102,88 @@ footer{
   width: 100%;
 }
 
+/*  ----------------------- css modal login ----------------------- */
+.modal-content{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  color: #425CAA;
+  width:60%;
+}
+.modal h1{
+  position:fixed;
+  top:90px;
+  right:30px;
+  color:white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 2em;
+}
+.modal-content input{
+  width:400px;
+  color: #425CAA;
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-sizing: content-box;
+}
+.modal-login-BTN{
+  display:flex;
+  margin:5px;
+  padding:5px;
+}
 
+.modal-login-BTN button{
+  background-color:#425CAA;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.modal{
+  width: 100vw;
+  margin: auto;
+  border: #000 solid 1px;
+  background-color:#425CAA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  margin-top: 80px;
+
+}
+
+.img-content {
+  display: flex;
+  align-items: center;
+  /* height:50%; */
+  width: 70vw;;
+  background-color: white;
+}
+
+.image-login {
+  margin: 20px;
+}
+
+.image-login img{
+  width: 350px;
+  padding: 50px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position:relative;
+  left:200px;
+  width:225px;
+}
+
+.modal-login-BTN {
+  margin-top: 10px;
+}
