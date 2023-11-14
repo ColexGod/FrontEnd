@@ -1,17 +1,39 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import img_online from "../../../public/img_online.png";
 import CreateModal from "../component/inscrireModal-component";
 
 const LoginModal = ({ onClose, showLoginModal, onCreateAccountClick }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
 
   const handleLogin = () => {
-    // Add your login logic here
-    // You can add your authentication logic here
-    // For now, let's just log a message
-    console.log("Login clicked");
+    const loginData={
+      email:username,
+      password:password,
+    };
+    fetch('http://localhost:8081/ProjetBack_end/ServletUserInfo/donneUser',{ mode: 'no-cors' }, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(loginData),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.success) {
+          console.log('Login successful');
+          
+        } else {
+          toast.error("Invalid email or password");
+        }
+      })
+      .catch((error) => {
+        console.error('Error during login:', error);
+      });
   };
 
   // const handleInscrire = () => {
@@ -40,8 +62,8 @@ const LoginModal = ({ onClose, showLoginModal, onCreateAccountClick }) => {
           <div className="content">
             <h2>USER LOGIN</h2>
             <input
-              type="text"
-              placeholder="Name"
+              type="email"
+              placeholder="Email"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
