@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import img_online from "../../../public/img_online.png";
 import CreateModal from "../component/inscrireModal-component";
+import axios from "axios";
 
 const LoginModal = ({ onClose, showLoginModal, onCreateAccountClick }) => {
   const [username, setUsername] = useState("");
@@ -15,33 +16,20 @@ const LoginModal = ({ onClose, showLoginModal, onCreateAccountClick }) => {
       email:username,
       password:password,
     };
-    fetch('http://localhost:8081/ProjetBack_end/ServletUserInfo/donneUser',{ mode: 'no-cors' }, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(loginData),
+    axios({
+      method: 'post',
+      url: 'http://localhost:8888/ProjetBack_end/ServletUserInfo/donneUser',
+      timeout: 4000,   
+      data: {
+        email: 'KristinRWarren54@gmail.com',
+        password: 'ohnic7Mei'
+      }
     })
-      .then((response) => response.json())
-      .then((response) => {
-        if (response.success) {
-          console.log('Login successful');
-          
-        } else {
-          toast.error("Invalid email or password");
-        }
-      })
-      .catch((error) => {
-        console.error('Error during login:', error);
-      });
+    .then(response => {/* handle the response */})
+    .catch(error => console.error('timeout exceeded'))
   };
 
-  // const handleInscrire = () => {
-  //   // Add your Inscrire logic here
-  //   // You can add your authentication logic here
-  //   // For now, let's just log a message
-  //   console.log("Inscrire clicked");
-  // };
+  
   const handleInscrire = () => {
     onCreateAccountClick();
   };
