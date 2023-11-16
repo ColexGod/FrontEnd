@@ -4,7 +4,7 @@ import logo from "../../../public/LOGO-STREAM_HEAVEN.png";
 import img_online from "../../../public/img_online.png";
 import img_offline from "../../../public/img_offline.png";
 
-const Header = ({ onLoginClick }) => {
+const Header = ({ onLoginClick, onListFilmClick}) => {
   return (
     <header>
       <div class="logo-nav">
@@ -17,7 +17,9 @@ const Header = ({ onLoginClick }) => {
               <a href="">HOME</a>
             </li>
             <li>
-              <a href="">MOVIES</a>
+              <a href="#" onClick={onListFilmClick}>
+                MOVIES
+              </a>
             </li>
             <li>
               <a href="#" onClick={onLoginClick}>
