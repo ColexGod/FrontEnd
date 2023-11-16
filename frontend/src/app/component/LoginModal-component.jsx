@@ -1,35 +1,43 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import img_online from "../../../public/img_online.png";
 import CreateModal from "../component/inscrireModal-component";
 import axios from "axios";
 
-const LoginModal = ({ onClose, showLoginModal, onCreateAccountClick }) => {
+//let myUser = 123;
+
+const LoginModal = ({
+  onClose,
+  showLoginModal,
+  onCreateAccountClick,
+  onLoginSuccess,
+}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
 
   const handleLogin = () => {
-    const loginData={
-      email:username,
-      password:password,
+    const loginData = {
+      email: username,
+      password: password,
     };
     axios({
-      method: 'post',
-      url: 'http://localhost:8888/ProjetBack_end/ServletUserInfo/donneUser',
-      timeout: 4000,   
-      data: {
-        email: 'KristinRWarren54@gmail.com',
-        password: 'ohnic7Mei'
-      }
+      method: "post",
+      url: "http://localhost:8081/ProjetBack_end/ServletUserInfo/donneUser",
+      timeout: 4000,
+      data: loginData,
     })
-    .then(response => {/* handle the response */})
-    .catch(error => console.error('timeout exceeded'))
+      .then((response) => {
+        if (response.status == 200) {
+          //myUser = response.data;
+          onLoginSuccess();
+          onClose();
+        } else {
+          //Ajout de message d'erreur
+        }
+      })
+      .catch((error) => console.error("timeout exceeded"));
   };
 
-  
   const handleInscrire = () => {
     onCreateAccountClick();
   };
@@ -76,4 +84,4 @@ const LoginModal = ({ onClose, showLoginModal, onCreateAccountClick }) => {
   );
 };
 
-export default LoginModal;
+export default /*{*/ LoginModal /*, myUser }*/;

@@ -8,6 +8,7 @@ class HeaderContainer extends Component {
     super(props);
     this.state = {
       showLoginModal: false,
+      isLoggedIn: false,
     };
   }
 
@@ -19,13 +20,25 @@ class HeaderContainer extends Component {
     this.setState({ showLoginModal: false });
   };
 
+  handleLoginSuccess = () => {
+    this.setState({ showLoginModal: false, isLoggedIn: true });
+  };
+
+  handleLogout = () => {
+    this.setState({ isLoggedIn: false });
+  };
+
   render() {
     return (
       <div>
-        <HeaderComponent onLoginClick={this.handleLoginClick} />
+        <HeaderComponent onLoginClick={this.handleLoginClick}
+        isLoggedIn={this.state.isLoggedIn}
+        onLoginSuccess={this.handleLoginSuccess}
+        onLogout={this.handleLogout} />
         <LoginModal
           onClose={this.handleCloseModal}
           showLoginModal={this.state.showLoginModal}
+          onLoginSuccess={this.handleLoginSuccess}
         />
       </div>
     );

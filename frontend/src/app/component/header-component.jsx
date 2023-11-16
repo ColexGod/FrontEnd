@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "../globals.css";
 import logo from "../../../public/LOGO-STREAM_HEAVEN.png";
 import img_online from "../../../public/img_online.png";
 import img_offline from "../../../public/img_offline.png";
 
-const Header = ({ onLoginClick }) => {
+const Header = ({ onLoginClick, isLoggedIn, onLoginSuccess, onLogout }) => {
+
+  const handleLoginSuccess = () => {
+    setLoggedIn(true);
+  };
   return (
     <header>
       <div class="logo-nav">
@@ -20,10 +24,14 @@ const Header = ({ onLoginClick }) => {
               <a href="">MOVIES</a>
             </li>
             <li>
-              <a href="#" onClick={onLoginClick}>
-                ACCOUNT
-              </a>
-              <img src={img_offline.src} />
+            <a href="#" onClick={isLoggedIn ? onLogout : onLoginClick}>
+            {isLoggedIn ? "LOGOUT" : "LOGIN"}
+          </a>
+              {isLoggedIn ? (
+                <img src={img_online.src} alt="Online" />
+              ) : (
+                <img src={img_offline.src} alt="Offline" />
+              )}
             </li>
           </ul>
         </nav>
