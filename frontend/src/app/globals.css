@@ -135,7 +135,7 @@ footer{
   padding:5px;
 }
 
-.modal-login-BTN button{
+.modal-BTN button{
   background-color:#425CAA;
   color: #fff;
   border: none;
@@ -166,11 +166,11 @@ footer{
   background-color: white;
 }
 
-.image-login {
+.image-modal {
   margin: 20px;
 }
 
-.image-login img{
+.image-modal img{
   width: 350px;
   padding: 50px;
 }
@@ -184,7 +184,7 @@ footer{
   width:225px;
 }
 
-.modal-login-BTN {
+.modal-BTN {
   margin-top: 10px;
 }
 

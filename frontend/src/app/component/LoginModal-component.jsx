@@ -14,6 +14,7 @@ const LoginModal = ({
   const [password, setPassword] = useState("");
   const [backendError, setBackendError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [showCreateModal, setShowCreateModal] = useState(false);
 
   const handleLogin = () => {
     const loginData = {
@@ -44,11 +45,16 @@ const LoginModal = ({
   };
 
   const handleInscrire = () => {
-    onCreateAccountClick();
+    setShowCreateModal(true);
   };
 
   const closeErrorModal = () => {
     setBackendError(false);
+  };
+
+  const closeCreateModal = () => {
+    // Close the CreateModal by setting showCreateModal to false
+    setShowCreateModal(false);
   };
 
   return (
@@ -61,7 +67,7 @@ const LoginModal = ({
       <h1 onClick={onClose}>X</h1>
       <div className="modal-content">
         <div className="img-content">
-          <div className="image-login">
+          <div className="image-modal">
             <img src={img_online.src} alt="Online" />
           </div>
           <div className="content">
@@ -84,18 +90,19 @@ const LoginModal = ({
                 <button onClick={closeErrorModal}>OK</button>
               </div>
             )}
-            <div className="modal-login-BTN">
+            <div className="modal-BTN">
               <button className="login-BTN" onClick={handleLogin}>
                 LOGIN
               </button>
               <button className="create-BTN" onClick={handleInscrire}>
                 CREATE ID
               </button>
+              <CreateModal onClose={closeCreateModal} isOpen={showCreateModal} />
             </div>
           </div>
         </div>
       </div>
-    </Modal>
+    </Modal>   
   );
 };
 
