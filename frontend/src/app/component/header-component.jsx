@@ -4,7 +4,9 @@ import logo from "../../../public/LOGO-STREAM_HEAVEN.png";
 import img_online from "../../../public/img_online.png";
 import img_offline from "../../../public/img_offline.png";
 
-const Header = ({ onLoginClick, isLoggedIn, onLoginSuccess, onLogout }) => {
+
+
+const Header = ({ onLoginClick, isLoggedIn, onLoginSuccess, onLogout, onListFilmClick }) => {
 
   const handleLoginSuccess = () => {
     setLoggedIn(true);
@@ -21,7 +23,9 @@ const Header = ({ onLoginClick, isLoggedIn, onLoginSuccess, onLogout }) => {
               <a href="">HOME</a>
             </li>
             <li>
-              <a href="">MOVIES</a>
+              <a href="#" onClick={onListFilmClick}>
+                MOVIES
+              </a>
             </li>
             <li>
             <a href="#" onClick={isLoggedIn ? onLogout : onLoginClick}>
