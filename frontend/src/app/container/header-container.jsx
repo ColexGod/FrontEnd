@@ -32,13 +32,24 @@ class HeaderContainer extends Component {
   render() {
     return (
       <div>
+<<<<<<< Updated upstream
         <HeaderComponent onLoginClick={this.handleLoginClick} onListFilmClick={this.handleListFilmClick}/>
+=======
+        <HeaderComponent
+          onLoginClick={this.handleLoginClick}
+          onListFilmClick={this.handleListFilmClick}
+        />
+>>>>>>> Stashed changes
         <LoginModal
           onClose={this.handleCloseModal}
           showLoginModal={this.state.showLoginModal}
         />
+<<<<<<< Updated upstream
         {this.state.showListFilm ? (<ListFilm/>) : ''}
         
+=======
+        {this.state.showListFilm ? <ListFilm /> : ""}
+>>>>>>> Stashed changes
       </div>
     );
   }

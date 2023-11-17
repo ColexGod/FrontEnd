@@ -4,7 +4,11 @@ import logo from "../../../public/LOGO-STREAM_HEAVEN.png";
 import img_online from "../../../public/img_online.png";
 import img_offline from "../../../public/img_offline.png";
 
+<<<<<<< Updated upstream
 const Header = ({ onLoginClick, onListFilmClick}) => {
+=======
+const Header = ({ onLoginClick, onListFilmClick }) => {
+>>>>>>> Stashed changes
   return (
     <header>
       <div class="logo-nav">
