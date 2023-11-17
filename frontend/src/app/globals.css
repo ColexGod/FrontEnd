@@ -96,10 +96,7 @@ footer{
   padding: 10px 20px;
   color: #fff;
   padding: 20px;
-<<<<<<< Updated upstream
   left: 0;
-=======
->>>>>>> Stashed changes
   bottom: 0;
   width: 100%;
 }
@@ -189,6 +186,7 @@ footer{
   margin-top: 10px;
 }
 
+
 /*    Css page liste de films      */
 
 .listefilms, .listefilmdiv {
@@ -254,4 +252,10 @@ display: inline-block;
 .listefilms {
   overflow-y: scroll;
   height: 400px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
 }

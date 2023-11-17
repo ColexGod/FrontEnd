@@ -10,6 +10,7 @@ class HeaderContainer extends Component {
     this.state = {
       showLoginModal: false,
       showListFilm: false,
+      isLoggedIn: false,
     };
   }
 
@@ -27,29 +28,39 @@ class HeaderContainer extends Component {
 
   handleCloseListFilm = () => {
     this.setState({ showListFilm: true });
+
+  handleLoginSuccess = () => {
+    this.setState({ showLoginModal: false, isLoggedIn: true });
+  };
+
+  handleLogout = () => {
+    this.setState({ isLoggedIn: false });
+
   };
 
   render() {
     return (
       <div>
-<<<<<<< Updated upstream
-        <HeaderComponent onLoginClick={this.handleLoginClick} onListFilmClick={this.handleListFilmClick}/>
-=======
-        <HeaderComponent
-          onLoginClick={this.handleLoginClick}
-          onListFilmClick={this.handleListFilmClick}
-        />
->>>>>>> Stashed changes
+
+        
+
+        <HeaderComponent onLoginClick={this.handleLoginClick}
+        isLoggedIn={this.state.isLoggedIn}
+        onLoginSuccess={this.handleLoginSuccess}
+        onLogout={this.handleLogout}
+       onListFilmClick={this.handleListFilmClick}
+    />
+
         <LoginModal
           onClose={this.handleCloseModal}
           showLoginModal={this.state.showLoginModal}
+          onLoginSuccess={this.handleLoginSuccess}
         />
-<<<<<<< Updated upstream
         {this.state.showListFilm ? (<ListFilm/>) : ''}
         
-=======
+
         {this.state.showListFilm ? <ListFilm /> : ""}
->>>>>>> Stashed changes
+
       </div>
     );
   }
