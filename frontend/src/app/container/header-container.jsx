@@ -41,8 +41,6 @@ class HeaderContainer extends Component {
     this.setState({ isLoggedIn: false });
   };
 
-<<<<<<< Updated upstream
-=======
   showModal = (movie) => {
     this.setState({ show: true, movie });
   };
@@ -51,7 +49,6 @@ class HeaderContainer extends Component {
     this.setState({ show: false });
   };
 
->>>>>>> Stashed changes
   render() {
     return (
       <div>
