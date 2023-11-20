@@ -4,10 +4,13 @@ import logo from "../../../public/LOGO-STREAM_HEAVEN.png";
 import img_online from "../../../public/img_online.png";
 import img_offline from "../../../public/img_offline.png";
 
-
-
-const Header = ({ onLoginClick, isLoggedIn, onLoginSuccess, onLogout, onListFilmClick }) => {
-
+const Header = ({
+  onLoginClick,
+  isLoggedIn,
+  onLoginSuccess,
+  onLogout,
+  onListFilmClick,
+}) => {
   const handleLoginSuccess = () => {
     setLoggedIn(true);
   };
@@ -28,9 +31,9 @@ const Header = ({ onLoginClick, isLoggedIn, onLoginSuccess, onLogout, onListFilm
               </a>
             </li>
             <li>
-            <a href="#" onClick={isLoggedIn ? onLogout : onLoginClick}>
-            {isLoggedIn ? "LOGOUT" : "LOGIN"}
-          </a>
+              <a href="#" onClick={isLoggedIn ? onLogout : onLoginClick}>
+                {isLoggedIn ? "LOGOUT" : "LOGIN"}
+              </a>
               {isLoggedIn ? (
                 <img src={img_online.src} alt="Online" />
               ) : (
