@@ -29,14 +29,14 @@ const Details = ({ handleClose, show, movie }) => {
       <div
         className="detail"
         style={{
-          backgroundImage: `linear-gradient(to right, rgb(63, 56, 56, 0.6), rgb(33, 31, 31) 90%), url(${image.src})`,
+          backgroundImage: `linear-gradient(to right, rgb(63, 56, 56, 0.6), rgb(33, 31, 31) 90%), url(${movie.poster})`,
         }}
       >
         <div className="container-img-detail">
           <div
             className="img-detail"
             style={{
-              backgroundImage: ` url(${image.src})`,
+              backgroundImage: `url(${movie.poster})`,
             }}
           ></div>
         </div>
@@ -53,7 +53,7 @@ const Details = ({ handleClose, show, movie }) => {
           <p>&#9733; &#9733; &#9733; &#9733; &#9734;</p>
           <div class="modal-BTN">
             <button class="play-BTN" onClick={handlePlay}>
-              Play
+              Louer
             </button>
             <button class="add-favorite-BTN" /*onClick={handleFavorite}*/>
               Favorite
