@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../globals.css";
 
-const ListFilm = () => {
+const ListFilm = ({showDetails}) => {
   const [jsonData, setJsonData] = useState([]);
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
