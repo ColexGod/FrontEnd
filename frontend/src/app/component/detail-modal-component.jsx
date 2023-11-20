@@ -19,6 +19,7 @@ const Details = ({ handleClose, show, movie }) => {
   };
 
   const handleFavorite = () => {
+    //todo
     addFavorite();
   };
 
@@ -57,7 +58,7 @@ const Details = ({ handleClose, show, movie }) => {
               Louer
             </button>
             <button class="add-favorite-BTN" /*onClick={handleFavorite}*/>
-              Favorite
+              Favorie
             </button>
           </div>
         </div>
