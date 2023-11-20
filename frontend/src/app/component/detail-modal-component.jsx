@@ -14,7 +14,7 @@ const Details = ({ handleClose, show, movie }) => {
   }, [movie]);
 
   const handleLouer = () => {
-    // todo
+    // to do
     console.log("played");
   };
 
