@@ -191,8 +191,7 @@ footer {
   margin-top: 10px;
 }
 
-<<<<<<< Updated upstream
-=======
+
 .error-message {
   color: red;
   margin-top: 10px;
@@ -219,7 +218,6 @@ footer {
   margin: 5px;
 }
 
->>>>>>> Stashed changes
 /*  ----------------------- css modal details ----------------------- */
 .modal-detail {
   position: fixed;
@@ -396,6 +394,7 @@ footer {
   overflow-y: scroll;
   height: 400px;
 }
+
 
 .error-message {
   color: red;
