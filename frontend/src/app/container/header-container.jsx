@@ -52,7 +52,15 @@ class HeaderContainer extends Component {
           onLoginSuccess={this.handleLoginSuccess}
         />
 
-        {this.state.showListFilm ? <ListFilm /> : null}
+        {this.state.showListFilm ? (
+          <ListFilm showDetails={this.showModal} />
+        ) : null}
+        <Details
+          handleClose={this.hideModal}
+          show={this.state.show}
+          movie={this.state.movie}
+        />
+
       </div>
     );
   }

@@ -191,6 +191,7 @@ footer {
   margin-top: 10px;
 }
 
+
 .error-message {
   color: red;
   margin-top: 10px;
@@ -215,6 +216,7 @@ footer {
   padding: 5px 10px;
   cursor: pointer;
   margin: 5px;
+}
 
 /*  ----------------------- css modal details ----------------------- */
 .modal-detail {
