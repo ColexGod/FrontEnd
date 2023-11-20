@@ -2,7 +2,6 @@
 import React, { Component, useState } from "react";
 import HeaderComponent from "../component/header-component";
 import LoginModal from "../component/LoginModal-component";
-import Details from "../component/detail-modal-component";
 import ListFilm from "../component/list-film-component";
 
 class HeaderContainer extends Component {
@@ -12,8 +11,6 @@ class HeaderContainer extends Component {
       showLoginModal: false,
       showListFilm: false,
       isLoggedIn: false,
-      show: false,
-      movie: [],
     };
   }
 
@@ -41,14 +38,6 @@ class HeaderContainer extends Component {
     this.setState({ isLoggedIn: false });
   };
 
-  showModal = (movie) => {
-    this.setState({ show: true, movie });
-  };
-
-  hideModal = () => {
-    this.setState({ show: false });
-  };
-
   render() {
     return (
       <div>
@@ -66,15 +55,7 @@ class HeaderContainer extends Component {
           onLoginSuccess={this.handleLoginSuccess}
         />
 
-        {this.state.showListFilm ? (
-          <ListFilm showDetails={this.showModal} />
-        ) : null}
-
-        <Details
-          handleClose={this.hideModal}
-          show={this.state.show}
-          movie={this.state.movie}
-        />
+        {this.state.showListFilm ? <ListFilm /> : null}
       </div>
     );
   }
