@@ -13,7 +13,7 @@ const Details = ({ handleClose, show, movie }) => {
     }
   }, [movie]);
 
-  const handlePlay = () => {
+  const handleLouer = () => {
     console.log("played");
   };
 
@@ -52,7 +52,7 @@ const Details = ({ handleClose, show, movie }) => {
           <p>{movie.resume}</p>
           <p>&#9733; &#9733; &#9733; &#9733; &#9734;</p>
           <div class="modal-BTN">
-            <button class="play-BTN" onClick={handlePlay}>
+            <button class="play-BTN" onClick={handleLouer}>
               Louer
             </button>
             <button class="add-favorite-BTN" /*onClick={handleFavorite}*/>
