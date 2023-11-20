@@ -69,7 +69,6 @@ class HeaderContainer extends Component {
         {this.state.showListFilm ? (
           <ListFilm showDetails={this.showModal} />
         ) : null}
-
         <Details
           handleClose={this.hideModal}
           show={this.state.show}

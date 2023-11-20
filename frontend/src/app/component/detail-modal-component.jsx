@@ -14,6 +14,7 @@ const Details = ({ handleClose, show, movie }) => {
   }, [movie]);
 
   const handleLouer = () => {
+    // todo
     console.log("played");
   };
 
@@ -30,7 +31,6 @@ const Details = ({ handleClose, show, movie }) => {
         className="detail"
         style={{
           backgroundImage: `linear-gradient(to right, rgb(63, 56, 56, 0.6), rgb(33, 31, 31) 90%), url(${movie.poster})`,
-
         }}
       >
         <div className="container-img-detail">
@@ -55,7 +55,6 @@ const Details = ({ handleClose, show, movie }) => {
           <div class="modal-BTN">
             <button class="play-BTN" onClick={handleLouer}>
               Louer
-
             </button>
             <button class="add-favorite-BTN" /*onClick={handleFavorite}*/>
               Favorite
