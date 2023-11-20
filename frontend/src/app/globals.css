@@ -188,6 +188,10 @@ footer{
 
 
 /*    Css page liste de films      */
+.listefilms img{
+  height: 100px;
+  margin-left: 50px;
+}
 
 .listefilms, .listefilmdiv {
   background-color: black;
@@ -221,7 +225,13 @@ display: inline-block;
 }
 
 .listefilms li div {
-  width: 500px;
+  width: 400px;
+}
+
+.listefilms li div+div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bouttonfiltre {
