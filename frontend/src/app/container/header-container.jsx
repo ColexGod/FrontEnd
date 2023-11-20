@@ -37,7 +37,6 @@ class HeaderContainer extends Component {
   handleLogout = () => {
     this.setState({ isLoggedIn: false });
   };
-
   render() {
     return (
       <div>
@@ -46,9 +45,7 @@ class HeaderContainer extends Component {
           isLoggedIn={this.state.isLoggedIn}
           onLoginSuccess={this.handleLoginSuccess}
           onLogout={this.handleLogout}
-          onListFilmClick={this.handleListFilmClick}
         />
-
         <LoginModal
           onClose={this.handleCloseModal}
           showLoginModal={this.state.showLoginModal}

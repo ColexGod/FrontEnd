@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import img_online from "../../../public/img_online.png";
 import CreateModal from "../component/inscrireModal-component";
@@ -14,6 +14,11 @@ const LoginModal = ({
   const [password, setPassword] = useState("");
   const [backendError, setBackendError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    setUsername("");
+    setPassword("");
+  }, [showLoginModal]);
 
   const handleLogin = () => {
     const loginData = {
@@ -39,7 +44,7 @@ const LoginModal = ({
       .catch((error) => {
         console.error("timeout exceeded");
         setBackendError(true);
-        setErrorMessage("Error connecting to the server.");
+        setErrorMessage("Email is not available");
       });
   };
 
@@ -49,6 +54,10 @@ const LoginModal = ({
 
   const closeErrorModal = () => {
     setBackendError(false);
+  };
+
+  const closeCreateModal = () => {
+    setShowCreateModal(false);
   };
 
   return (
@@ -79,7 +88,7 @@ const LoginModal = ({
               onChange={(e) => setPassword(e.target.value)}
             />
             {backendError && (
-              <div className="modal-login-ERROR">
+              <div className="modal-ERROR">
                 <p className="error-message">{errorMessage}</p>
                 <button onClick={closeErrorModal}>OK</button>
               </div>
@@ -91,6 +100,15 @@ const LoginModal = ({
               <button className="create-BTN" onClick={handleInscrire}>
                 CREATE ID
               </button>
+              <CreateModal
+                onClose={() => {
+                  closeCreateModal();
+                }}
+                isOpen={showCreateModal}
+                onUserCreated={() => {
+                  closeCreateModal();
+                }}
+              />
             </div>
           </div>
         </div>
