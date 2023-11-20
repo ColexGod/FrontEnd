@@ -14,6 +14,7 @@ const LoginModal = ({
   const [password, setPassword] = useState("");
   const [backendError, setBackendError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [showCreateModal, setShowCreateModal] = useState(false);
 
   useEffect(() => {
     setUsername("");
@@ -49,7 +50,7 @@ const LoginModal = ({
   };
 
   const handleInscrire = () => {
-    onCreateAccountClick();
+    setShowCreateModal(true);
   };
 
   const closeErrorModal = () => {
@@ -93,7 +94,7 @@ const LoginModal = ({
                 <button onClick={closeErrorModal}>OK</button>
               </div>
             )}
-            <div className="modal-login-BTN">
+            <div className="modal-BTN">
               <button className="login-BTN" onClick={handleLogin}>
                 LOGIN
               </button>
