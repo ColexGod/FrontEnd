@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../globals.css";
 
-const ListFilm = () => {
+const ListFilm = ({ showDetails }) => {
   const [jsonData, setJsonData] = useState([]);
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
@@ -132,6 +132,9 @@ const ListFilm = () => {
         {sortedMovies.map((movie) => (
           <li key={movie.id}>
             <div>{movie.titre}</div> <div>{movie.annee}</div>
+            <div>
+              <u onClick={() => showDetails(movie)}>voir</u>
+            </div>
           </li>
         ))}
       </ul>
