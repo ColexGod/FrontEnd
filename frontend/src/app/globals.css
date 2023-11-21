@@ -191,6 +191,32 @@ footer {
   margin-top: 10px;
 }
 
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.modal-ERROR button{
+  background-color:#425CAA;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: auto;
+}
+
+.modal-BTN button{
+  background-color:#425CAA;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 5px;
+}
+
 
 .error-message {
   color: red;
