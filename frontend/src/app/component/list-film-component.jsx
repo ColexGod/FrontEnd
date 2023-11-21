@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../globals.css";
 
-const ListFilm = () => {
+const ListFilm = ({showDetails}) => {
   const [jsonData, setJsonData] = useState([]);
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
@@ -16,7 +16,7 @@ const ListFilm = () => {
   useEffect(() => {
     axios({
       method: "post",
-      url: "http://localhost:8080/ProjetBack_end/ServletUserInfo/listeFilm",
+      url: "http://localhost:8085/ProjetBack_end/ServletUserInfo/listeFilm",
       timeout: 4000,
     })
       .then((response) => {
@@ -130,8 +130,9 @@ const ListFilm = () => {
     return (
       <ul className="listefilms">
         {sortedMovies.map((movie) => (
-          <li key={movie.id}>
-            <div>{movie.titre}</div> <div>{movie.annee}</div>
+          <li key={movie.id} onClick={() => showDetails(movie)}>
+            <div><img src={movie.poster} alt="img" /></div><div>{movie.titre}</div> <div>{movie.annee}</div>
+
           </li>
         ))}
       </ul>
