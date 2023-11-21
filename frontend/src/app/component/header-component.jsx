@@ -20,7 +20,7 @@ const Header = ({ onLoginClick, isLoggedIn, onLoginSuccess, onLogout, onListFilm
         <nav>
           <ul class="nav">
             <li>
-              <a href="">HOME</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); }}>HOME</a>
             </li>
             <li>
               <a href="#" onClick={onListFilmClick}>
