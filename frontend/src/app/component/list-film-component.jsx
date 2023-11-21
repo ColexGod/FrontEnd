@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../globals.css";
-
-const ListFilm = ({showDetails}) => {
+ 
+const ListFilm = ({ showDetails }) => {
   const [jsonData, setJsonData] = useState([]);
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
@@ -12,7 +12,7 @@ const ListFilm = ({showDetails}) => {
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [selectedAlphabet, setSelectedAlphabet] = useState("");
   const [sortedMovies, setSortedMovies] = useState([]);
-
+ 
   useEffect(() => {
     axios({
       method: "post",
@@ -22,7 +22,7 @@ const ListFilm = ({showDetails}) => {
       .then((response) => {
         const movies = response.data;
         setJsonData(movies);
-
+ 
         const allGenres = movies.reduce((acc, movie) => {
           if (movie.genre) {
             const movieGenres = movie.genre
@@ -32,16 +32,16 @@ const ListFilm = ({showDetails}) => {
           }
           return acc;
         }, []);
-
+ 
         const nonEmptyGenres = allGenres.filter((genre) => genre !== "");
         const uniqueGenres = [...new Set(nonEmptyGenres)];
         setGenres(uniqueGenres);
-
+ 
         const allYears = movies.map((movie) => movie.annee);
         const nonEmptyYears = allYears.filter((year) => year !== "");
         const uniqueYears = [...new Set(nonEmptyYears)].sort((a, b) => b - a);
         setYears(uniqueYears);
-
+ 
         const allLanguages = movies.map((movie) => movie.langue);
         const nonEmptyLanguages = allLanguages.filter(
           (language) => language !== ""
@@ -55,32 +55,32 @@ const ListFilm = ({showDetails}) => {
         // Handle error appropriately, set default values, etc.
       });
   }, []);
-
+ 
   useEffect(() => {
     handleSortClick();
   }, [jsonData]);
-
+ 
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
+ 
   const handleGenreChange = (event) => {
     setSelectedGenre(event.target.value);
   };
-
+ 
   const handleYearChange = (event) => {
     setSelectedYear(event.target.value);
   };
-
+ 
   const handleLanguageChange = (event) => {
     setSelectedLanguage(event.target.value);
   };
-
+ 
   const handleAlphabetChange = (event) => {
     setSelectedAlphabet(event.target.value);
   };
-
+ 
   const handleSortClick = () => {
     let filteredMovies = jsonData;
-
+ 
     if (selectedGenre) {
       filteredMovies = filteredMovies.filter(
         (movie) =>
@@ -88,13 +88,13 @@ const ListFilm = ({showDetails}) => {
           movie.genre.toLowerCase().includes(selectedGenre.toLowerCase())
       );
     }
-
+ 
     if (selectedYear) {
       filteredMovies = filteredMovies.filter(
         (movie) => movie.annee && movie.annee.toString() === selectedYear
       );
     }
-
+ 
     if (selectedLanguage) {
       filteredMovies = filteredMovies.filter(
         (movie) =>
@@ -102,7 +102,7 @@ const ListFilm = ({showDetails}) => {
           movie.langue.toLowerCase() === selectedLanguage.toLowerCase()
       );
     }
-
+ 
     if (selectedAlphabet) {
       filteredMovies = filteredMovies.filter(
         (movie) =>
@@ -110,10 +110,10 @@ const ListFilm = ({showDetails}) => {
           movie.titre.toLowerCase().startsWith(selectedAlphabet.toLowerCase())
       );
     }
-
+ 
     setSortedMovies(filteredMovies.length > 0 ? filteredMovies : []);
   };
-
+ 
   const resetFilters = () => {
     setSelectedGenre("");
     setSelectedYear("");
@@ -121,24 +121,24 @@ const ListFilm = ({showDetails}) => {
     setSelectedAlphabet("");
     setSortedMovies(jsonData);
   };
-
+ 
   const renderMovies = () => {
     if (sortedMovies.length === 0) {
       return <p>Aucun film trouvé.</p>;
     }
-
+ 
     return (
       <ul className="listefilms">
         {sortedMovies.map((movie) => (
           <li key={movie.id} onClick={() => showDetails(movie)}>
             <div><img src={movie.poster} alt="img" /></div><div>{movie.titre}</div> <div>{movie.annee}</div>
-
+          
           </li>
         ))}
       </ul>
     );
   };
-
+ 
   return (
     <div className="listefilmdiv">
       <select
@@ -153,7 +153,7 @@ const ListFilm = ({showDetails}) => {
           </option>
         ))}
       </select>
-
+ 
       <select id="yearSelect" value={selectedYear} onChange={handleYearChange}>
         <option value="">DATE SORTIE</option>
         {years.map((year) => (
@@ -174,7 +174,7 @@ const ListFilm = ({showDetails}) => {
           </option>
         ))}
       </select>
-
+ 
       <select
         id="alphabetSelect"
         value={selectedAlphabet}
@@ -187,17 +187,17 @@ const ListFilm = ({showDetails}) => {
           </option>
         ))}
       </select>
-
+ 
       <button className="bouttonfiltre" onClick={handleSortClick}>
         Trier
       </button>
       <button className="bouttonfiltre" onClick={resetFilters}>
         Réinitialiser
       </button>
-
+ 
       {renderMovies()}
     </div>
   );
 };
-
+ 
 export default ListFilm;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import image from "../../../public/image.jpg";
-
+ 
 const Details = ({ handleClose, show, movie }) => {
   const [genres, setGenres] = useState([]);
   const [resume, setResume] = useState([]);
@@ -12,17 +12,19 @@ const Details = ({ handleClose, show, movie }) => {
       setGenres(movieGenres);
     }
   }, [movie]);
-
+ 
   const handleLouer = () => {
+    // to do
     console.log("played");
   };
-
+ 
   const handleFavorite = () => {
+    //todo
     addFavorite();
   };
-
+ 
   console.log("Détails du film :");
-
+ 
   return (
     <Modal className="modal-detail" isOpen={show} closed={handleClose}>
       <h1 onClick={handleClose}>X</h1>
@@ -30,7 +32,6 @@ const Details = ({ handleClose, show, movie }) => {
         className="detail"
         style={{
           backgroundImage: `linear-gradient(to right, rgb(63, 56, 56, 0.6), rgb(33, 31, 31) 90%), url(${movie.poster})`,
-
         }}
       >
         <div className="container-img-detail">
@@ -55,10 +56,9 @@ const Details = ({ handleClose, show, movie }) => {
           <div class="modal-BTN">
             <button class="play-BTN" onClick={handleLouer}>
               Louer
-
             </button>
             <button class="add-favorite-BTN" /*onClick={handleFavorite}*/>
-              Favorite
+              Favorie
             </button>
           </div>
         </div>
@@ -66,5 +66,5 @@ const Details = ({ handleClose, show, movie }) => {
     </Modal>
   );
 };
-
+ 
 export default Details;

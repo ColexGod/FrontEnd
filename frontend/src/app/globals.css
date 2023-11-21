@@ -255,7 +255,7 @@ footer {
   background-color: #425CAA;
   height: 90vh;
 }
-
+ 
 .modal-detail h1 {
   display: inline-block;
   position: relative;
@@ -267,11 +267,11 @@ footer {
   font-size: 1.7em;
   cursor: default;
 }
-
+ 
 .modal-detail h1:hover {
   background-color: red;
 }
-
+ 
 .detail {
   position: relative;
   top: 12%;
@@ -283,14 +283,14 @@ footer {
   background-size: cover;
   /* font-size: 0; */
 }
-
+ 
 .container-img-detail {
   position: absolute;
   display: inline-block;
   width: 30%;
   height: 100%;
 }
-
+ 
 .img-detail {
   position: relative;
   left: 50px;
@@ -300,7 +300,7 @@ footer {
   background-repeat: no-repeat;
   background-size: 260px 500px;
 }
-
+ 
 .container-details {
   position: absolute;
   display: inline-block;
@@ -311,15 +311,15 @@ footer {
   text-align: center;
   margin: auto;
 }
-
+ 
 .container-details h2, .container-details ul, .container-details p {
   margin: 20px 0 20px 0;
 }
-
+ 
 .container-details ul li:last-child {
   display: none;
 }
-
+ 
 .container-details ul li {
   display: inline-block;
   width: 100px;
@@ -327,13 +327,13 @@ footer {
   margin: 0 20px 0 20px;
   background-color: #333;
 }
-
+ 
 .container-details p:first-of-type {
   position: relative;
   margin: auto;
   width: 60%;
 }
-
+ 
 .modal-BTN button {
   background-color: blue;
   margin: 15px 20px 15px 20px;
