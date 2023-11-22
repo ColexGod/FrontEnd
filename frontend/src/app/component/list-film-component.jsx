@@ -16,7 +16,7 @@ const ListFilm = ({ showDetails, searchValue }) => {
   useEffect(() => {
     axios({
       method: "post",
-      url: "http://localhost:8085/ProjetBack_end/ServletUserInfo/listeFilm",
+      url: "http://localhost:8081/ProjetBack_end/ServletUserInfo/listeFilm",
       timeout: 4000,
     })
       .then((response) => {
