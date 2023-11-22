@@ -17,6 +17,12 @@ const LoginModal = ({
   const [password, setPassword] = useState("");
   const [backendError, setBackendError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [showCreateModal, setShowCreateModal] = useState(false);
+
+  useEffect(() => {
+    setUsername("");
+    setPassword("");
+  }, [showLoginModal]);
   const [barreLateraleOuverte, setBarreLateraleOuverte] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -46,6 +52,7 @@ const LoginModal = ({
       .catch((error) => {
         console.error("timeout exceeded");
         setBackendError(true);
+        setErrorMessage("Email is not available");
         setErrorMessage("Error connecting to the server.");
       });
   };
@@ -82,6 +89,7 @@ const LoginModal = ({
 
   // Fonction pour gérer le clic sur "Create ID"
   const handleInscrire = () => {
+    setShowCreateModal(true);
     onCreateAccountClick();
   };
 
@@ -89,7 +97,9 @@ const LoginModal = ({
   const closeErrorModal = () => {
     setBackendError(false);
   };
-
+  const closeCreateModal = () => {
+    setShowCreateModal(false);
+  };
   return (
     <div>
       {/* Fenêtre modale de connexion */}
