@@ -356,7 +356,7 @@ header {
   width: 60%;
 }
  
-.modal-BTN button {
+.modal-detail-BTN button, .modal-BTN button  {
   background-color: #425CAA;
   color: #fff;
   border: none;

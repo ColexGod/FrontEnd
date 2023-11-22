@@ -53,7 +53,7 @@ const Details = ({ handleClose, show, movie }) => {
           </ul>
           <p>{movie.resume}</p>
           <p>&#9733; &#9733; &#9733; &#9733; &#9734;</p>
-          <div class="modal-BTN">
+          <div class="modal-detail-BTN">
             <button class="play-BTN" onClick={handleLouer}>
               Louer
             </button>
