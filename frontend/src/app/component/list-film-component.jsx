@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../globals.css";
  
-const ListFilm = ({ showDetails }) => {
+const ListFilm = ({ showDetails, searchValue }) => {
   const [jsonData, setJsonData] = useState([]);
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
@@ -58,7 +58,7 @@ const ListFilm = ({ showDetails }) => {
  
   useEffect(() => {
     handleSortClick();
-  }, [jsonData]);
+  }, [jsonData, searchValue]);
  
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
  
@@ -80,7 +80,13 @@ const ListFilm = ({ showDetails }) => {
  
   const handleSortClick = () => {
     let filteredMovies = jsonData;
- 
+
+    if (searchValue.trim() !== "") {
+      filteredMovies = filteredMovies.filter((movie) =>
+        movie.titre.toLowerCase().startsWith(searchValue.toLowerCase())
+      );
+    }
+
     if (selectedGenre) {
       filteredMovies = filteredMovies.filter(
         (movie) =>
@@ -123,6 +129,7 @@ const ListFilm = ({ showDetails }) => {
   };
  
   const renderMovies = () => {
+    
     if (sortedMovies.length === 0) {
       return <p>Aucun film trouvé.</p>;
     }
