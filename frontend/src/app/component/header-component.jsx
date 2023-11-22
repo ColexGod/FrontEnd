@@ -10,16 +10,42 @@ const Header = ({
   onLoginSuccess,
   onLogout,
   onListFilmClick,
+  onSearchSubmit,
 }) => {
   const handleLoginSuccess = () => {
     setLoggedIn(true);
   };
+
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleSearchChange = (event) => {
+    setSearchValue(event.target.value);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    let searchValue2 = searchValue
+    setSearchValue("");
+    onSearchSubmit(searchValue2);
+  };
+
   return (
     <header>
       <div class="logo-nav">
         <div class="logo">
           <img src={logo.src} />
         </div>
+        <div className="search-bar">
+        <form onSubmit={handleSearchSubmit}>
+          <input
+            type="search"
+            placeholder="Cherchez ici"
+            value={searchValue}
+            onChange={handleSearchChange}
+          />
+          <button type="submit">Chercher</button>
+        </form>
+      </div>
         <nav>
           <ul class="nav">
             <li>
@@ -43,10 +69,7 @@ const Header = ({
           </ul>
         </nav>
       </div>
-      <div class="search-bar">
-        <input type="search" placeholder="Cherchez ici" />
-        <button>Chercher</button>
-      </div>
+       
     </header>
   );
 };

@@ -14,6 +14,7 @@ class HeaderContainer extends Component {
       isLoggedIn: false,
       show: false,
       movie: [],
+      searchValue: "",
     };
   }
  
@@ -48,6 +49,11 @@ class HeaderContainer extends Component {
   hideModal = () => {
     this.setState({ show: false });
   };
+
+  handleSearchSubmit = (value) => {
+    this.setState({ searchValue: value });
+    this.setState({ showListFilm: true });
+  };
  
   render() {
     return (
@@ -58,6 +64,7 @@ class HeaderContainer extends Component {
           onLoginSuccess={this.handleLoginSuccess}
           onLogout={this.handleLogout}
           onListFilmClick={this.handleListFilmClick}
+          onSearchSubmit={this.handleSearchSubmit}
         />
  
         <LoginModal
@@ -67,7 +74,7 @@ class HeaderContainer extends Component {
         />
  
         {this.state.showListFilm ? (
-          <ListFilm showDetails={this.showModal} />
+          <ListFilm showDetails={this.showModal} searchValue={this.state.searchValue}/>
         ) : null}
         <Details
           handleClose={this.hideModal}
