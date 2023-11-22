@@ -53,7 +53,7 @@ const FooterComponent = () => {
             </a>
           </li>
         </ul>
-        <p>&copy;2023 Carlson Team | All Rights Reserved</p>
+        <p>&copy;2023 Team Ta Peur | All Rights Reserved | &copy;Tete De Neuil</p>
         <script
         type="module"
         defer
