@@ -47,13 +47,13 @@ const LoginModal = ({
           onClose();
         } else {
           setBackendError(true);
-          setErrorMessage("Email or password is incorrect.");
+          setErrorMessage("Error connecting to the server.");
         }
       })
       .catch((error) => {
         console.error("timeout exceeded");
         setBackendError(true);
-        setErrorMessage("Error connecting to the server.");
+        setErrorMessage("Email or password is incorrect.");
       });
   };
  
