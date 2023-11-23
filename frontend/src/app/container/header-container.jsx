@@ -10,7 +10,7 @@ class HeaderContainer extends Component {
     super(props);
     this.state = {
       showLoginModal: false,
-      showListFilm: false,
+      showListFilm: true,
       isLoggedIn: false,
       show: false,
       movie: [],

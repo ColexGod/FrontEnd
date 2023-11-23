@@ -572,7 +572,7 @@ header {
 }
  
 .monCompte {
-  padding: 10px;
+  height: 0;
 }
  
 .image-container:hover img {
