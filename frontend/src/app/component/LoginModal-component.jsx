@@ -89,7 +89,7 @@ const LoginModal = ({
  
   // Fonction pour gérer le clic sur "Create ID"
   const handleInscrire = () => {
-    onCreateAccountClick();
+    setShowCreateModal(true);
   };
  
   // Fonction pour fermer la fenêtre modale d'erreur
@@ -144,6 +144,15 @@ const LoginModal = ({
                 <button className="create-BTN" onClick={handleInscrire}>
                   CREATE ID
                 </button>
+                <CreateModal
+                onClose={() => {
+                  closeCreateModal();
+                }}
+                isOpen={showCreateModal}
+                onUserCreated={() => {
+                  closeCreateModal();
+                }}
+              />
               </div>
             </div>
           </div>
