@@ -37,7 +37,7 @@ const CreateModal = ({ onClose, isOpen, onUserCreated }) => {
 
     axios({
       method: "post",
-      url: "http://localhost:8081/ProjetBack_end/ServletUserInfo/createUser",
+      url: "http://localhost:8085/ProjetBack_end/ServletUserInfo/createUser",
       data: userData,
     })
       .then((response) => {
